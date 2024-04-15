@@ -1,1 +1,7 @@
+from pymycobot.mycobot import MyCobot
 
+print("Program start")
+mc = MyCobot('/dev/ttyAMA0',115200)
+mc.send_angles([-90,0,0,0,0,0],30)
+mc.send_angles([90,0,0,0,0,0],30)
+print("Program slut(sponsoreret af bjarkes kusse)")
