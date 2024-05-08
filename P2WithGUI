@@ -255,6 +255,8 @@ jarTakeOff = gearSlopAdjust([151.98, 20.36, 72.25, 87.39, 61.98, 0])
 jarDroppoff = [127.59, 68.55, 76.42, 35.03 , 37.59, 0] 
 jarDroppoffApproach = [111.57, 30.80, 111.42, 37.77, 21.57, 0]
 
+rowSwitch = [147.59, 40.85, 64.13, 75.02, 147.59, 0]
+
 greenApproach = gearSlopAdjust([118.24, 23.06, 68.43, 88.51, 118.24, 0])
 greenEject = gearSlopAdjust([109.98, 59.0, 5.54, 115.45, 109.98, 0])
 
@@ -283,7 +285,7 @@ goldEject = gearSlopAdjust([73.77, 53.00, 100.22, 26.78, 73.77, 0])
 
 ########## robot setup ##########
 print("Program start")
-ser = serial.Serial('/dev/ttyACM1',9600)
+ser = serial.Serial('/dev/ttyACM0',9600)
 mc = MyCobot('/dev/ttyAMA0',115200)
 mc.power_on()
 mc.set_color(255,223,0) 
@@ -293,6 +295,7 @@ open()
 def DoneClicked(a):
     global PillCount
     runOnce = False
+    upperRow = False
 
     if messagebox.askyesno(message="Are you sure?"):
         print(f'Green pills',PillCount[0])
@@ -313,12 +316,15 @@ def DoneClicked(a):
             getPill(greenEject,greenApproach)
             PillCount[0] = PillCount[0] -1
             print(PillCount[0])
+            upperRow = True
+            
         
         while (PillCount[1] > 0):
             #Picks the chosen purple pills up
             getPill(purpleEject,purpleApproach)
             PillCount[1] = PillCount[1] -1
             print(PillCount[1])
+            upperRow = True
 
         while (PillCount[2] > 0):
             #Picks the chosen white pills up
@@ -331,11 +337,14 @@ def DoneClicked(a):
             getPill(whiteEject,whiteApproach)
             PillCount[2] = PillCount[2] -1
             print(PillCount[2])
+            upperRow = True
             
-        if runOnce:
-            #Ensures that the robot does not collide with itself
-            mc.send_angles(purpleApproach,speed)
-            destinationArrival(purpleApproach)
+       
+        if upperRow:
+            #Ensures no collision when switching rows
+            mc.send_angles(rowSwitch,speed)
+            destinationArrival(rowSwitch)
+
 
         while (PillCount[3] > 0):
             #Picks the chosen red pills up
