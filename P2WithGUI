@@ -34,7 +34,7 @@ stage = 0 #Keeps track of every stage
 
 # Functions for the "+" and "-" buttons
 
-def clicked(plus,index):
+def clicked(plus,index): #Hvis plus er true er det en + knap hvis den er false er det en - knap. Index er indexet i pillcount vi ændrer på
     global PillCount
     if plus == True:
         PillCount[index] = PillCount[index] + 1
@@ -53,78 +53,6 @@ def clicked(plus,index):
         label5.configure(text=f'{PillCount[index]}')
     elif index == 5:
         label6.configure(text=f'{PillCount[index]}')
-
-def clicked11(a):
-    global PillCount 
-    if PillCount[0] > 0:
-        PillCount[0] -= 1
-        label1.configure(text=f'{PillCount[0]}')
-
-def clicked12(a):
-    global PillCount 
-    PillCount[0] += 1
-    label1.configure(text=f'{PillCount[0]}')
-
-
-def clicked21(a):
-    global PillCount 
-    if PillCount[1] > 0:
-        PillCount[1] -= 1
-        label2.configure(text=f'{PillCount[1]}')
-
-def clicked22(a):
-    global PillCount 
-    PillCount[1] += 1
-    label2.configure(text=f'{PillCount[1]}')
-
-
-def clicked31(a):
-    global PillCount 
-    if PillCount[2] > 0:
-        PillCount[2] -= 1
-        label3.configure(text=f'{PillCount[2]}')
-
-def clicked32(a):
-    global PillCount 
-    PillCount[2] += 1
-    label3.configure(text=f'{PillCount[2]}')
-
-
-def clicked41(a):
-    global PillCount 
-    if PillCount[3] > 0:
-        PillCount[3] -= 1
-        label4.configure(text=f'{PillCount[3]}')
-
-def clicked42(a):
-    global PillCount 
-    PillCount[3] += 1
-    label4.configure(text=f'{PillCount[3]}')
-
-
-def clicked51(a):
-    global PillCount 
-    if PillCount[4] > 0:
-        PillCount[4] -= 1
-        label5.configure(text=f'{PillCount[4]}')
-
-def clicked52(a):
-    global PillCount 
-    PillCount[4] += 1
-    label5.configure(text=f'{PillCount[4]}')
-
-
-def clicked61(a):
-    global PillCount
-    if PillCount[5] > 0:
-        PillCount[5] -=  1
-        label6.configure(text=f'{PillCount[5]}')
-
-def clicked62(a):
-    global PillCount
-    PillCount[5] += 1
-    label6.configure(text=f'{PillCount[5]}')
-
 
 # Functions for the Tabs
 
