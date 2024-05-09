@@ -9,6 +9,7 @@ import numpy as np
 import serial
 import time
 
+from functools import partial
 
 ########## Creating GUI window ##########
 window = tk.Tk()
@@ -32,6 +33,26 @@ stage = 0 #Keeps track of every stage
 ########## Functions ##########
 
 # Functions for the "+" and "-" buttons
+
+def clicked(plus,index):
+    global PillCount
+    if plus == True:
+        PillCount[index] = PillCount[index] + 1
+    elif plus == False:
+        if PillCount[index] > 0:
+            PillCount[index] = PillCount[index] - 1
+    if index == 0:
+        label1.configure(text=f'{PillCount[index]}')
+    elif index == 0:
+        label2.configure(text=f'{PillCount[index]}')
+    elif index == 0:
+        label3.configure(text=f'{PillCount[index]}')
+    elif index == 0:
+        label4.configure(text=f'{PillCount[index]}')
+    elif index == 0:
+        label5.configure(text=f'{PillCount[index]}')
+    elif index == 0:
+        label6.configure(text=f'{PillCount[index]}')
 
 def clicked11(a):
     global PillCount 
@@ -495,58 +516,58 @@ tab_button3.bind("<ButtonPress>", Soeren)
 
 # Creats "+" and "-" buttons
 
-button11 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
+button11 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,0))
 button11.grid(row=3, column=0, sticky=NSEW)
-button11.bind("<ButtonPress>", clicked11)
+#button11.bind("<ButtonPress>", clicked11)
 
-button12 = tk.Button(buttongrid, text="+",font=('Arial',30))
+button12 = tk.Button(buttongrid, text="+",font=('Arial',30),command=partial(clicked,True,0))
 button12.grid(row=3, column=2, sticky=NSEW)
-button12.bind("<ButtonPress>", clicked12)
+#button12.bind("<ButtonPress>", clicked12)
 
 
-button21 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
+button21 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,1))
 button21.grid(row=3, column=4, sticky=NSEW)
-button21.bind("<ButtonPress>", clicked21)
+#button21.bind("<ButtonPress>", clicked21)
 
-button22 = tk.Button(buttongrid, text="+",font=('Arial',30))
+button22 = tk.Button(buttongrid, text="+",font=('Arial',30),command=partial(clicked,True,1))
 button22.grid(row=3, column=6, sticky=NSEW)
-button22.bind("<ButtonPress>", clicked22)
+#button22.bind("<ButtonPress>", clicked22)
 
 
-button31 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
+button31 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,2))
 button31.grid(row=3, column=8, sticky=NSEW)
-button31.bind("<ButtonPress>", clicked31)
+#button31.bind("<ButtonPress>", clicked31)
 
-button32 = tk.Button(buttongrid, text="+", font=('Arial',30))
+button32 = tk.Button(buttongrid, text="+", font=('Arial',30),command=partial(clicked,True,2))
 button32.grid(row=3, column=10, sticky=NSEW)
-button32.bind("<ButtonPress>", clicked32)
+#button32.bind("<ButtonPress>", clicked32)
 
 
-button41 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
+button41 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,3))
 button41.grid(row=6, column=0, sticky=NSEW)
-button41.bind("<ButtonPress>", clicked41)
+#button41.bind("<ButtonPress>", clicked41)
 
-button42 = tk.Button(buttongrid, text="+", font=('Arial',30))
+button42 = tk.Button(buttongrid, text="+", font=('Arial',30),command=partial(clicked,True,3))
 button42.grid(row=6, column=2, sticky=NSEW)
-button42.bind("<ButtonPress>", clicked42)
+#button42.bind("<ButtonPress>", clicked42)
 
 
-button51 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
+button51 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,4))
 button51.grid(row=6, column=4, sticky=NSEW)
-button51.bind("<ButtonPress>", clicked51)
+#button51.bind("<ButtonPress>", clicked51)
 
-button52 = tk.Button(buttongrid, text="+", font=('Arial',30))
+button52 = tk.Button(buttongrid, text="+", font=('Arial',30),command=partial(clicked,True,4))
 button52.grid(row=6, column=6, sticky=NSEW)
-button52.bind("<ButtonPress>", clicked52)
+#button52.bind("<ButtonPress>", clicked52)
 
 
-button61 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
+button61 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,5))
 button61.grid(row=6, column=8, sticky=NSEW)
-button61.bind("<ButtonPress>", clicked61)
+#button61.bind("<ButtonPress>", clicked61)
 
-button62 = tk.Button(buttongrid, text="+", font=('Arial',30))
+button62 = tk.Button(buttongrid, text="+", font=('Arial',30),command=partial(clicked,True,5))
 button62.grid(row=6, column=10, sticky=NSEW)
-button62.bind("<ButtonPress>", clicked62)
+#button62.bind("<ButtonPress>", clicked62)
 
 # Done button
 
