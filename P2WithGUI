@@ -253,8 +253,10 @@ def jarDropoff():
 
 
 ########## throughpoints ##########
-jarApproach = gearSlopAdjust([138.69, 19.51, 132.70 , 27.8, 48.70, 0])
-jarPickup = gearSlopAdjust([151.98, 65.50, 92.99, 21.51, 61.98, 0])
+jarApproach = gearSlopAdjust([138.69, 41.83, 132.91, 5.26, 48.69, 0])
+#jarApproach = gearSlopAdjust([138.69, 19.51, 132.70 , 27.8, 48.70, 0])
+jarPickup = gearSlopAdjust([153.50,64.88,87.37,27.75,63.51,0])
+jarVia = gearSlopAdjust([151.98, 65.50, 92.99, 21.51, 61.98, 0])#Gamle pickup
 jarTakeOff = gearSlopAdjust([151.98, 20.36, 72.25, 87.39, 61.98, 0])
 
 jarDroppoff = [127.59, 68.55, 76.42, 35.03 , 37.59, 0] 
@@ -270,17 +272,26 @@ purpleEject = gearSlopAdjust([93.42, 31.75, 55.24, 93.01, 93.42, 0])
 
 whiteApproach = gearSlopAdjust([69.29, 1.07, 95.57, 83.36, 69.29, 0])
 #whiteApproach = gearSlopAdjust([60.74, -18.65, 111.9, 86.75, 60.74, 0])
-whiteEject = gearSlopAdjust([73.77, 18.17, 75.25, 86.58, 73.77, 0])
+#whiteEject = gearSlopAdjust([73.77, 18.17, 75.25, 86.58, 73.77, 0])
+whiteEject = gearSlopAdjust([74.25, 20.63, 71.88, 87.49, 74.25, 0])
 
 redApproach = gearSlopAdjust([118.24, 55.27, 93.68, 31.05, 118.24, 0])
-redEject = gearSlopAdjust([109.98, 70.52, 55.71, 53.77, 109.98, 0])
+redEject = gearSlopAdjust([108.74, 74.83, 43.11, 62.06, 108.74, 0])
+#redEject = gearSlopAdjust([108.82, 75.87, 43.51, 60.62, 108.82, 0])#Virker næsten
+#redEject = gearSlopAdjust([109.55, 72.26, 51.70, 56.04, 109.55, 0])
+#redEject = gearSlopAdjust([109.14, 74.18, 47.33, 58.49, 109.14, 0])
+#redEject = gearSlopAdjust([109.14, 72.99, 47.79, 59.22, 109.14, 0])
 
 blueApproach = gearSlopAdjust([95.59, 46.89, 123.07, 10.04, 95.59, 0])
-blueEject = gearSlopAdjust([93.51, 58.38, 85.30, 36.32, 93.51, 0])
+#blueEject = gearSlopAdjust([93.51, 58.38, 85.30, 36.32, 93.51, 0])
+#blueEject = gearSlopAdjust([93.26, 62.07, 75.89, 42.04, 93.26, 0])#virker næsten
+blueEject = gearSlopAdjust([93.25, 60.76, 75.61, 43.63, 93.25, 0])
 
-goldApproach = gearSlopAdjust([69.29, 47.09, 121.94, 10.97, 69.29, 0])
+
+goldApproach = [69.29, 47.09, 121.94, 10.97, 69.29, 0]
 #goldApproach = gearSlopAdjust([60.74, 47.02, 143.61, -10.62, 60.74, 0])
-goldEject = gearSlopAdjust([73.77, 53.00, 100.22, 26.78, 73.77, 0])
+#goldEject = gearSlopAdjust([73.77, 53.00, 100.22, 26.78, 73.77, 0])
+goldEject = gearSlopAdjust([75.04, 56.28, 90.89, 32.83, 75.04, 0])
 
 
 
