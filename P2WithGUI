@@ -43,15 +43,15 @@ def clicked(plus,index):
             PillCount[index] = PillCount[index] - 1
     if index == 0:
         label1.configure(text=f'{PillCount[index]}')
-    elif index == 0:
+    elif index == 1:
         label2.configure(text=f'{PillCount[index]}')
-    elif index == 0:
+    elif index == 2:
         label3.configure(text=f'{PillCount[index]}')
-    elif index == 0:
+    elif index == 3:
         label4.configure(text=f'{PillCount[index]}')
-    elif index == 0:
+    elif index == 4:
         label5.configure(text=f'{PillCount[index]}')
-    elif index == 0:
+    elif index == 5:
         label6.configure(text=f'{PillCount[index]}')
 
 def clicked11(a):
