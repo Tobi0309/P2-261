@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
-
+%pruh
 # MyCobot libraries
 from pymycobot.mycobot import MyCobot
 import numpy as np
