@@ -20,10 +20,6 @@ window.title("Pill dispencer GUI")
 
 PillCount = [0,0,0,0,0,0]
 
-ZeroPills = [0,0,0,0,0,0]
-GrethePills = [1,2,3,4,5,6]
-BirthePills = [3,3,3,3,3,3]
-SoerenPills = [6,5,4,3,2,1]
 
 ########## global variables ##########
 
@@ -40,72 +36,72 @@ stage = 0 #Keeps track of every stage
 def clicked11(a):
     global PillCount 
     if PillCount[0] > 0:
-        PillCount[0] = PillCount[0] - 1
+        PillCount[0] -= 1
         label1.configure(text=f'{PillCount[0]}')
 
 def clicked12(a):
     global PillCount 
-    PillCount[0] = PillCount[0] + 1
+    PillCount[0] += 1
     label1.configure(text=f'{PillCount[0]}')
 
 
 def clicked21(a):
     global PillCount 
     if PillCount[1] > 0:
-        PillCount[1] = PillCount[1] - 1
+        PillCount[1] -= 1
         label2.configure(text=f'{PillCount[1]}')
 
 def clicked22(a):
     global PillCount 
-    PillCount[1] = PillCount[1] + 1
+    PillCount[1] += 1
     label2.configure(text=f'{PillCount[1]}')
 
 
 def clicked31(a):
     global PillCount 
     if PillCount[2] > 0:
-        PillCount[2] = PillCount[2] - 1
+        PillCount[2] -= 1
         label3.configure(text=f'{PillCount[2]}')
 
 def clicked32(a):
     global PillCount 
-    PillCount[2] = PillCount[2] + 1
+    PillCount[2] += 1
     label3.configure(text=f'{PillCount[2]}')
 
 
 def clicked41(a):
     global PillCount 
     if PillCount[3] > 0:
-        PillCount[3] = PillCount[3] - 1
+        PillCount[3] -= 1
         label4.configure(text=f'{PillCount[3]}')
 
 def clicked42(a):
     global PillCount 
-    PillCount[3] = PillCount[3] + 1
+    PillCount[3] += 1
     label4.configure(text=f'{PillCount[3]}')
 
 
 def clicked51(a):
     global PillCount 
     if PillCount[4] > 0:
-        PillCount[4] = PillCount[4] - 1
+        PillCount[4] -= 1
         label5.configure(text=f'{PillCount[4]}')
 
 def clicked52(a):
     global PillCount 
-    PillCount[4] = PillCount[4] + 1
+    PillCount[4] += 1
     label5.configure(text=f'{PillCount[4]}')
 
 
 def clicked61(a):
     global PillCount
     if PillCount[5] > 0:
-        PillCount[5] = PillCount[5] - 1
+        PillCount[5] -=  1
         label6.configure(text=f'{PillCount[5]}')
 
 def clicked62(a):
     global PillCount
-    PillCount[5] = PillCount[5] + 1
+    PillCount[5] += 1
     label6.configure(text=f'{PillCount[5]}')
 
 
@@ -118,37 +114,41 @@ def Zero(a):
     tab_button2.configure(bg="gray", fg="black")
     tab_button3.configure(bg="gray", fg="black")
     # gets the global variables
+    ZeroPills = [0,0,0,0,0,0]
     global PillCount
     # Changes the global variables
     PillCount = ZeroPills
-    TabChange(0)
+    TabChange(a)
 
 def Grethe(a):
     tab_button0.configure(bg="gray", fg="black")
     tab_button1.configure(bg="black", fg="white")
     tab_button2.configure(bg="gray", fg="black")
     tab_button3.configure(bg="gray", fg="black")
+    GrethePills = [1,2,3,4,5,6]
     global PillCount
     PillCount = GrethePills
-    TabChange(1)
+    TabChange(a)
     
 def Birthe(a):
     tab_button0.configure(bg="gray", fg="black")
     tab_button1.configure(bg="gray", fg="black")
     tab_button2.configure(bg="black", fg="white")
     tab_button3.configure(bg="gray", fg="black")
+    BirthePills = [3,3,3,3,3,3]
     global PillCount
     PillCount = BirthePills
-    TabChange(2)
+    TabChange(a)
 
 def Soeren(a):
     tab_button0.configure(bg="gray", fg="black")
     tab_button1.configure(bg="gray", fg="black")
     tab_button2.configure(bg="gray", fg="black")
     tab_button3.configure(bg="black", fg="white")
+    SoerenPills = [6,5,4,3,2,1]
     global PillCount
     PillCount = SoerenPills
-    TabChange(3)
+    TabChange(a)
 
 
 def TabChange(a):
@@ -457,22 +457,22 @@ label6.grid(row=5, column=9, sticky=NSEW)
 # Zero Tab
 tab_button0 = tk.Button(buttongrid, text="Zero", font=('Arial',30),bg="black", fg="white")
 tab_button0.grid(row=0, column=0, sticky=NSEW)
-tab_button0.bind("<Button-1>", Zero)
+tab_button0.bind("<ButtonPress>", Zero)
 
 # Grethe Tab
 tab_button1 = tk.Button(buttongrid, text="Grethe", font=('Arial',30),bg="gray", fg="black")
 tab_button1.grid(row=0, column=1, sticky=NSEW)
-tab_button1.bind("<Button-1>", Grethe)
+tab_button1.bind("<ButtonPress>", Grethe)
 
 # Birthe Tab
 tab_button2 = tk.Button(buttongrid, text="Birthe", font=('Arial',30),bg="gray", fg="black")
 tab_button2.grid(row=0, column=2, sticky=NSEW)
-tab_button2.bind("<Button-1>", Birthe)
+tab_button2.bind("<ButtonPress>", Birthe)
 
 # Soeren Tab
 tab_button3 = tk.Button(buttongrid, text="Soeren", font=('Arial',30),bg="gray", fg="black")
 tab_button3.grid(row=0, column=3, sticky=NSEW)
-tab_button3.bind("<Button-1>", Soeren)
+tab_button3.bind("<ButtonPress>", Soeren)
 
 
 ##########
@@ -481,62 +481,62 @@ tab_button3.bind("<Button-1>", Soeren)
 
 button11 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
 button11.grid(row=3, column=0, sticky=NSEW)
-button11.bind("<Button-1>", clicked11)
+button11.bind("<ButtonPress>", clicked11)
 
 button12 = tk.Button(buttongrid, text="+",font=('Arial',30))
 button12.grid(row=3, column=2, sticky=NSEW)
-button12.bind("<Button-1>", clicked12)
+button12.bind("<ButtonPress>", clicked12)
 
 
 button21 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
 button21.grid(row=3, column=4, sticky=NSEW)
-button21.bind("<Button-1>", clicked21)
+button21.bind("<ButtonPress>", clicked21)
 
 button22 = tk.Button(buttongrid, text="+",font=('Arial',30))
 button22.grid(row=3, column=6, sticky=NSEW)
-button22.bind("<Button-1>", clicked22)
+button22.bind("<ButtonPress>", clicked22)
 
 
 button31 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
 button31.grid(row=3, column=8, sticky=NSEW)
-button31.bind("<Button-1>", clicked31)
+button31.bind("<ButtonPress>", clicked31)
 
 button32 = tk.Button(buttongrid, text="+", font=('Arial',30))
 button32.grid(row=3, column=10, sticky=NSEW)
-button32.bind("<Button-1>", clicked32)
+button32.bind("<ButtonPress>", clicked32)
 
 
 button41 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
 button41.grid(row=6, column=0, sticky=NSEW)
-button41.bind("<Button-1>", clicked41)
+button41.bind("<ButtonPress>", clicked41)
 
 button42 = tk.Button(buttongrid, text="+", font=('Arial',30))
 button42.grid(row=6, column=2, sticky=NSEW)
-button42.bind("<Button-1>", clicked42)
+button42.bind("<ButtonPress>", clicked42)
 
 
 button51 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
 button51.grid(row=6, column=4, sticky=NSEW)
-button51.bind("<Button-1>", clicked51)
+button51.bind("<ButtonPress>", clicked51)
 
 button52 = tk.Button(buttongrid, text="+", font=('Arial',30))
 button52.grid(row=6, column=6, sticky=NSEW)
-button52.bind("<Button-1>", clicked52)
+button52.bind("<ButtonPress>", clicked52)
 
 
 button61 = tk.Button(buttongrid, text=" - ", font=('Arial',30))
 button61.grid(row=6, column=8, sticky=NSEW)
-button61.bind("<Button-1>", clicked61)
+button61.bind("<ButtonPress>", clicked61)
 
 button62 = tk.Button(buttongrid, text="+", font=('Arial',30))
 button62.grid(row=6, column=10, sticky=NSEW)
-button62.bind("<Button-1>", clicked62)
+button62.bind("<ButtonPress>", clicked62)
 
 # Done button
 
 button100 = tk.Button(buttongrid, text="Done", font=('Arial',30))
 button100.grid(row=7, column=10, sticky=NSEW)
-button100.bind("<Button-1>", DoneClicked)
+button100.bind("<ButtonPress>", DoneClicked)
 
 
 ##########
