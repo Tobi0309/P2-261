@@ -2,14 +2,13 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
+from functools import partial
 
 # MyCobot libraries
 from pymycobot.mycobot import MyCobot
 import numpy as np
 import serial
 import time
-
-from functools import partial
 
 ########## Creating GUI window ##########
 window = tk.Tk()
@@ -56,62 +55,34 @@ def clicked(plus,index): #Hvis plus er true er det en + knap hvis den er false e
 
 # Functions for the Tabs
 
-def Zero(a):
-    # Changes colores on the different taps
-    tab_button0.configure(bg="black", fg="white")
-    tab_button1.configure(bg="gray", fg="black")
-    tab_button2.configure(bg="gray", fg="black")
-    tab_button3.configure(bg="gray", fg="black")
-    # gets the global variables
-    ZeroPills = [0,0,0,0,0,0]
+def tabButtons(tab):
     global PillCount
-    # Changes the global variables
-    PillCount = ZeroPills
-    TabChange(a)
-
-def Grethe(a):
-    tab_button0.configure(bg="gray", fg="black")
-    tab_button1.configure(bg="black", fg="white")
-    tab_button2.configure(bg="gray", fg="black")
-    tab_button3.configure(bg="gray", fg="black")
-    GrethePills = [1,2,3,4,5,6]
-    global PillCount
-    PillCount = GrethePills
-    TabChange(a)
-    
-def Birthe(a):
-    tab_button0.configure(bg="gray", fg="black")
-    tab_button1.configure(bg="gray", fg="black")
-    tab_button2.configure(bg="black", fg="white")
-    tab_button3.configure(bg="gray", fg="black")
-    BirthePills = [3,3,3,3,3,3]
-    global PillCount
-    PillCount = BirthePills
-    TabChange(a)
-
-def Soeren(a):
     tab_button0.configure(bg="gray", fg="black")
     tab_button1.configure(bg="gray", fg="black")
     tab_button2.configure(bg="gray", fg="black")
-    tab_button3.configure(bg="black", fg="white")
-    SoerenPills = [6,5,4,3,2,1]
-    global PillCount
-    PillCount = SoerenPills
-    TabChange(a)
-
-
-def TabChange(a):
-    # Gets the global variables
-    global PillCount
-
-    # Changes the Number labels
+    tab_button3.configure(bg="gray", fg="black")
+    if tab == "z":
+        tab_button0.configure(bg="black", fg="white")
+        ZeroPills = [0,0,0,0,0,0]
+        PillCount = ZeroPills
+    elif tab == "g":
+        tab_button1.configure(bg="black", fg="white")
+        GrethePills = [1,2,3,4,5,6]
+        PillCount = GrethePills
+    elif tab == "b":
+        tab_button2.configure(bg="black", fg="white")
+        BirthePills = [3,3,3,3,3,3]
+        PillCount = BirthePills
+    elif tab == "s":
+        tab_button3.configure(bg="black", fg="white")
+        SoerenPills = [6,5,4,3,2,1]
+        PillCount = SoerenPills
     label1.configure(text=f'{PillCount[0]}')
     label2.configure(text=f'{PillCount[1]}')
     label3.configure(text=f'{PillCount[2]}')
     label4.configure(text=f'{PillCount[3]}')
     label5.configure(text=f'{PillCount[4]}')
     label6.configure(text=f'{PillCount[5]}')
-
 
 ######################################
 ########## Code for MyCobot ##########
@@ -446,56 +417,40 @@ tab_button3.bind("<ButtonPress>", Soeren)
 
 button11 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,0))
 button11.grid(row=3, column=0, sticky=NSEW)
-#button11.bind("<ButtonPress>", clicked11)
 
 button12 = tk.Button(buttongrid, text="+",font=('Arial',30),command=partial(clicked,True,0))
 button12.grid(row=3, column=2, sticky=NSEW)
-#button12.bind("<ButtonPress>", clicked12)
-
 
 button21 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,1))
 button21.grid(row=3, column=4, sticky=NSEW)
-#button21.bind("<ButtonPress>", clicked21)
 
 button22 = tk.Button(buttongrid, text="+",font=('Arial',30),command=partial(clicked,True,1))
 button22.grid(row=3, column=6, sticky=NSEW)
-#button22.bind("<ButtonPress>", clicked22)
-
 
 button31 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,2))
 button31.grid(row=3, column=8, sticky=NSEW)
-#button31.bind("<ButtonPress>", clicked31)
 
 button32 = tk.Button(buttongrid, text="+", font=('Arial',30),command=partial(clicked,True,2))
 button32.grid(row=3, column=10, sticky=NSEW)
-#button32.bind("<ButtonPress>", clicked32)
-
 
 button41 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,3))
 button41.grid(row=6, column=0, sticky=NSEW)
-#button41.bind("<ButtonPress>", clicked41)
 
 button42 = tk.Button(buttongrid, text="+", font=('Arial',30),command=partial(clicked,True,3))
 button42.grid(row=6, column=2, sticky=NSEW)
-#button42.bind("<ButtonPress>", clicked42)
-
 
 button51 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,4))
 button51.grid(row=6, column=4, sticky=NSEW)
-#button51.bind("<ButtonPress>", clicked51)
 
 button52 = tk.Button(buttongrid, text="+", font=('Arial',30),command=partial(clicked,True,4))
 button52.grid(row=6, column=6, sticky=NSEW)
-#button52.bind("<ButtonPress>", clicked52)
 
 
 button61 = tk.Button(buttongrid, text=" - ", font=('Arial',30),command=partial(clicked,False,5))
 button61.grid(row=6, column=8, sticky=NSEW)
-#button61.bind("<ButtonPress>", clicked61)
 
 button62 = tk.Button(buttongrid, text="+", font=('Arial',30),command=partial(clicked,True,5))
 button62.grid(row=6, column=10, sticky=NSEW)
-#button62.bind("<ButtonPress>", clicked62)
 
 # Done button
 
