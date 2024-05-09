@@ -220,8 +220,13 @@ def collectJar():
     global jarPickup
     global jarTakeOff
 
+    open()
+
     mc.send_angles(jarApproach,speed)
     destinationArrival(jarApproach)
+
+    mc.send_angles(jarVia,speed)
+    destinationArrival(jarVia)
 
     mc.send_angles(jarPickup,speed)
     destinationArrival(jarPickup)
