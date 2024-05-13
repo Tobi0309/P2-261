@@ -317,6 +317,13 @@ def DoneClicked(a):
 
         jarDropoff()
 
+        label1.configure(text=f'{PillCount[0]}')
+        label2.configure(text=f'{PillCount[1]}')
+        label3.configure(text=f'{PillCount[2]}')
+        label4.configure(text=f'{PillCount[3]}')
+        label5.configure(text=f'{PillCount[4]}')
+        label6.configure(text=f'{PillCount[5]}')
+
         print("Program slut")
         tabButtons("z")
 
@@ -464,6 +471,5 @@ buttongrid.pack(fill='x')
 
 window.rowconfigure(0, weight=1)
 window.columnconfigure(0, weight=1)
-
 
 window.mainloop()
